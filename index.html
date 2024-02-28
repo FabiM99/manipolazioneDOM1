@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>To-Do List</title>
+</head>
+
+<body>
+  <div>
+    <h1>To-Do List</h1>
+    <input type="text" placeholder="Add a task..." id="newText" />
+    <button id="btn" onclick="newElement()">Add Task</button>
+    <ul id="my-ul"></ul>
+  </div>
+
+  <script>
+ function newElement() {
+  let inputValue = document.getElementById("newText").value.trim();
+
+ //controllo se l'input è vuoto e se lo è mi da l'alert//
+   if(inputValue === "") {
+    alert("YOU BETTER WRITE SOMETHING!!");
+    return;
+  }
+
+  //creo un li per rappresentare un task inserito//
+  let li = document.createElement("li");
+  let text = document.createTextNode(inputValue);
+  li.appendChild(text);
+
+  //creazioe della checkbox//
+  let checkbox = document.createElement("input");
+  checkbox.type = "checkbox";
+  li.appendChild(checkbox);
+
+  // Aggiungo <li> a <ul> //
+  document.getElementById("my-ul").appendChild(li);
+
+  // Dopo l'aggiunta del testo il campo si pulisce//
+  document.getElementById("newText").value = "";
+}
+
+
+  </script>
+</body>
+</html>
